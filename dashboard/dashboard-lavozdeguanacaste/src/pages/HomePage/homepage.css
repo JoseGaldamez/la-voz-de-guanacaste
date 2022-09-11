@@ -1,0 +1,72 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0px auto;
+    padding-top: 50px;
+    max-width: 700px;
+    justify-content: center;
+}
+
+.container-info{
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container-info .logo{
+    width: 100px;
+    height: 100px;
+    margin: 0px auto;
+}
+
+.container-info .logo img{
+    width: 100%;
+}
+
+.container-info h2{
+    text-align: center;
+}
+.container-info p{
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    padding: 10px;
+    font-weight: 300;
+}
+
+.image-element{
+    border-top: solid 1px #eee;
+    margin-top: 50px;
+    padding-top: 20px;
+}
+
+.image-element h3{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+.container-info button{
+    text-align: center;
+    margin: 30px auto;
+    background-color: red;
+    width: 100%;
+    max-width: 508px;
+    border: none;
+    padding: 10px;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all ease 500ms;
+}
+
+.container-info button:hover{
+    background-color: rgba(255, 0, 0, 0.8);
+}
