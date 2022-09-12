@@ -6,6 +6,9 @@ import 'package:lavozdeguanacaste/src/components/card_post_03.dart';
 import 'package:lavozdeguanacaste/src/components/selected_card_post.dart';
 import 'package:lavozdeguanacaste/src/models/banner_model.dart';
 import 'package:lavozdeguanacaste/src/models/post_model.dart';
+import 'package:lavozdeguanacaste/src/pages/about_us_page.dart';
+import 'package:lavozdeguanacaste/src/pages/contact_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ListOfPost extends StatefulWidget {
   const ListOfPost({Key? key}) : super(key: key);
@@ -60,11 +63,78 @@ class _ListOfPostState extends State<ListOfPost> {
                             post01: snapshot.data![index],
                             post02: snapshot.data![index + 1],
                           ),
+                          Divider(),
                           Container(
-                            height: 200,
+                            alignment: Alignment.center,
+                            child: Column(
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.only(
+                                      top: 40, bottom: 20),
+                                  child: ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const AboutUs()));
+                                      },
+                                      child: Text(
+                                        "Acerca de nosotros",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18),
+                                      )),
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.only(bottom: 20),
+                                  child: ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const ContactPage()));
+                                      },
+                                      child: Text(
+                                        "Contacto",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18),
+                                      )),
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.only(bottom: 40),
+                                  child: TextButton(
+                                      onPressed: () {
+                                        tryLaunchUrl(
+                                            "https://vozdeguanacaste.com");
+                                      },
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            "Visita Nuestra Web",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 18,
+                                                color: Colors.blue),
+                                          ),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Icon(
+                                            Icons.launch,
+                                            color: Colors.blue,
+                                          )
+                                        ],
+                                      )),
+                                ),
+                              ],
+                            ),
                             width: double.infinity,
-                            color: Colors.red,
-                          )
+                          ),
                         ],
                       );
                     }
@@ -78,6 +148,13 @@ class _ListOfPostState extends State<ListOfPost> {
           }
         }),
         future: futurePosts);
+  }
+}
+
+Future<void> tryLaunchUrl(url) async {
+  final Uri _url = Uri.parse(url);
+  if (!await launchUrl(_url)) {
+    throw 'Could not launch $_url';
   }
 }
 

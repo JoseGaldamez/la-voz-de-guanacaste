@@ -40,6 +40,13 @@ class PostHtmlPage extends StatelessWidget {
       line-height: 1.5;
       color: #000;
     }
+    blockquote {
+      margin: 30px 20px;
+      background-color: #FFCC01;
+      padding: 10px 20px;
+      color: #000;
+      font-weight: bold !important;
+    }
     </style>
 ''';
 
